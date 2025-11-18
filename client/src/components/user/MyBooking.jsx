@@ -6,7 +6,6 @@ const MyBooking = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch user bookings
   useEffect(() => {
     const fetchBookings = async () => {
       try {

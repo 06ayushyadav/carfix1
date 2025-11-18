@@ -1,4 +1,3 @@
-// models/Garage.js
 import mongoose from "mongoose";
 
 const garageSchema = new mongoose.Schema({
@@ -25,7 +24,6 @@ const garageSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-// Create 2dsphere index for geo queries
 garageSchema.index({ location: "2dsphere" });
 
 export default mongoose.model("Garage", garageSchema);

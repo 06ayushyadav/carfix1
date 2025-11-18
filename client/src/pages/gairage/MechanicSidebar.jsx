@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function MechanicSidebar({ activeTab, setActiveTab }) {
   const navigate = useNavigate();
-
-
   async function handleLogout() {
     try {
       await api.post("/auth/logout");

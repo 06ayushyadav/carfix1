@@ -45,7 +45,6 @@ export default function Register() {
 
   return (
     <div className="min-h-screen flex justify-center items-center flex-col md:flex-row">
-      {/* ---------- Left Section ---------- */}
       <div className="p-44 mt-20 md:w-1/2 rounded-t-full rounded-b-full bg-gradient-to-br from-blue-700 via-cyan-500 to-blue-400 flex flex-col justify-center text-white">
         <div className="max-w-md mx-auto">
           <h1 className="text-4xl font-bold mb-4">Join the CarFix Family</h1>
@@ -58,7 +57,6 @@ export default function Register() {
         </div>
       </div>
 
-      {/* ---------- Right Section ---------- */}
       <div className="md:w-1/2 flex items-center justify-center p-8 mt-20">
         <div className="w-full max-w-md bg-white shadow-2xl rounded-2xl p-8">
           <h2 className="text-3xl font-bold text-blue-600 text-center mb-6">

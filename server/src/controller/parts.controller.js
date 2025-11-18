@@ -1,6 +1,5 @@
 import Part from "../models/gairage/parts.js";
 
-// ➤ Create new part
 export const createPart = async (req, res) => {
   const userId = req.user?._id;
   try {
@@ -26,7 +25,6 @@ export const createPart = async (req, res) => {
   }
 };
 
-// ➤ Get all parts (with optional category filter)
 export const getAllParts = async (req, res) => {
   try {
     const { category, search } = req.query;
@@ -44,7 +42,6 @@ export const getAllParts = async (req, res) => {
   }
 };
 
-// ➤ Get single part by ID
 export const getPartById = async (req, res) => {
   try {
     const part = await Part.findById(req.params.id).
@@ -57,7 +54,6 @@ export const getPartById = async (req, res) => {
   }
 };
 
-// ➤ Update part
 export const updatePart = async (req, res) => {
   try {
     const updatedPart = await Part.findByIdAndUpdate(req.params.id, req.body, {
@@ -71,7 +67,6 @@ export const updatePart = async (req, res) => {
   }
 };
 
-// ➤ Delete part
 export const deletePart = async (req, res) => {
   try {
     const part = await Part.findById(req.params.id);

@@ -4,15 +4,12 @@ import { validationResult } from "express-validator";
 
 export async function createOrUpdateProfile(req, res) {
   try {
-    // validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(422).json({ errors: errors.array() });
 
     const { name, skills, chargePerHour, address, phone } = req.body;
-    // file (Cloudinary) will be in req.file.path or req.file?.path depending on storage
     const storePhoto = req.file?.path || req.file?.secure_url || "";
 
-    // If mechanic is linked to user (req.user) update that doc; else create new
     let mechanic;
     if (req.user && req.user.role === "mechanic") {
       mechanic = await Mechanic.findOneAndUpdate(
@@ -66,7 +63,7 @@ export async function getAllMechanics(req, res) {
   try {
     
     const mechanics = await Mechanic.find({})
-      .populate("user", "name email") // optional: if you linked with user model
+      .populate("user", "name email") 
       .select("name skills chargePerHour address phone storePhoto createdAt");
 
     res.status(200).json({

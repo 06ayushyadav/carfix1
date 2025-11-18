@@ -1,10 +1,8 @@
-// src/components/Emergency.jsx
-import React, { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import api from "../../api/axios.js";
 
-// Custom marker icons
 const userIcon = new L.Icon({
   iconUrl: "https://cdn-icons-png.flaticon.com/512/149/149060.png",
   iconSize: [35, 35],
@@ -15,7 +13,6 @@ const garageIcon = new L.Icon({
   iconSize: [35, 35],
 });
 
-// Map auto-centering component
 const MapUpdater = ({ coords }) => {
   const map = useMap();
   useEffect(() => {

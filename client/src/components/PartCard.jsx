@@ -22,12 +22,7 @@ export default function PartCard({ part }) {
         className="mt-3 flex items-center justify-center gap-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
           Show Detail
         </button>
-        {/* <button
-          onClick={() => addToCart(part)}
-          className="mt-3 flex items-center justify-center gap-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
-        >
-          <ShoppingCart size={18} /> Add to Cart
-        </button> */}
+        
       </div>
     </div>
   );

@@ -11,7 +11,6 @@ import CreateBookingCard from "../../components/gairage/CreateBookingCard.jsx";
 export default function MechanicDashboard() {
   const { user } = useContext(AuthContext);
   const { garageId } = useParams();
-  // console.log("Garage Dashboard — garageId:", garageId);
   const [activeTab, setActiveTab] = useState("profile");
   const [form, setForm] = useState({
     name: "",
@@ -212,7 +211,7 @@ export default function MechanicDashboard() {
                   />
                 </div>
 
-                {/* Photo Upload */}
+                {/* Photo */}
                 <div className="flex flex-col md:flex-row gap-6 items-center border border-dashed border-gray-300 rounded-xl p-4 bg-gray-50">
                   <div className="w-48 h-32 rounded-lg overflow-hidden bg-white border border-gray-200 shadow-inner">
                     {preview ? (

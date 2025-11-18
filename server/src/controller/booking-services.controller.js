@@ -35,7 +35,6 @@ export const createBooking = async (req, res, next) => {
   }
 };
 
-// Get all bookings for one garage (for garage dashboard)
 export const getBookingsByGarage = async (req, res, next) => {
   try {
     const { garageId } = req.params;
@@ -46,7 +45,6 @@ export const getBookingsByGarage = async (req, res, next) => {
   }
 };
 
-// (Optional) Admin: all bookings
 export const getAllBookings = async (req, res, next) => {
   try {
     const bookings = await Booking.find()
@@ -58,7 +56,7 @@ export const getAllBookings = async (req, res, next) => {
   }
 };
 
-// Garage can update booking status
+// booking status
 export const updateBookingStatus = async (req, res, next) => {
   try {
     const { id } = req.params;

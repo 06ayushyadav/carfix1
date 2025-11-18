@@ -9,7 +9,7 @@ const CreateBookingCard = () => {
     skills: "",
     chargePerHour: "",
     address: "",
-    storePhoto: null, // actual file upload
+    storePhoto: null, 
     available: true,
   });
 
@@ -38,7 +38,6 @@ const CreateBookingCard = () => {
   e.preventDefault();
 
   try {
-    // ✅ Create FormData
     const mechanicData = new FormData();
     mechanicData.append("name", formData.name);
     mechanicData.append("phone", formData.phone);
@@ -48,7 +47,6 @@ const CreateBookingCard = () => {
     mechanicData.append("available", formData.available);
     if (formData.storePhoto) mechanicData.append("storePhoto", formData.storePhoto);
 
-    // ✅ Send to backend
     const res = await api.post(
       "/book/create", 
       mechanicData,

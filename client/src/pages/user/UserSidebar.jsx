@@ -20,7 +20,6 @@ export default function UserSidebar({ activeTab, setActiveTab }) {
     <div className="w-full md:w-64 bg-zinc-900 text-white flex md:flex-col items-center md:items-start p-5 rounded-r-2xl shadow-2xl">
       <h2 className="text-2xl font-bold text-blue-400 mb-8">User Panel</h2>
 
-      {/* ✅ Just tab switching – no routing */}
       <nav className="flex flex-row md:flex-col gap-3 w-full">
         {tabs.map((tab) => (
           <button
@@ -41,40 +40,3 @@ export default function UserSidebar({ activeTab, setActiveTab }) {
     </div>
   );
 }
-
-
-
-// import React from "react";
-// import { Link, useNavigate, useParams } from "react-router-dom";
-// import { LogOut, User, ClipboardList } from "lucide-react";
-
-// export default function UserSidebar() {
-//   const navigate = useNavigate();
-//   const {userId}=useParams()
-
-//   const handleLogout = () => {
-//     document.cookie = "token=; Max-Age=0"; // delete cookie
-//     navigate("/login");
-//   };
-
-//   return (
-//     <div className="w-full md:w-64 bg-zinc-900 text-white flex md:flex-col items-center md:items-start p-4 space-x-4 md:space-x-0 md:space-y-6">
-//       <h2 className="text-xl font-bold text-blue-400 mb-4 md:mb-8">User Panel</h2>
-
-//       <Link to={`/dashboard/${userId}`} className="flex items-center gap-2 hover:text-blue-400 transition">
-//         <User size={18} /> Profile
-//       </Link>
-
-//       <Link to={`/dashboard/my-booking/${userId}`} className="flex items-center gap-2 hover:text-blue-400 transition">
-//         <ClipboardList size={18} /> My Bookings
-//       </Link>
-
-//       <button
-//         onClick={handleLogout}
-//         className="flex items-center gap-2 hover:text-red-400 transition mt-auto"
-//       >
-//         <LogOut size={18} /> Logout
-//       </button>
-//     </div>
-//   );
-// }

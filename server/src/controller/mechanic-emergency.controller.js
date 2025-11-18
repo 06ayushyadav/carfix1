@@ -1,13 +1,5 @@
-// controllers/garageController.js
 import Garage from "../models/gairage/emergency.js";
 import Joi from "joi";
-
-/*
- Expected POST body:
- {
-   name, address, phone, lat, lng
- }
-*/
 
 const registerSchema = Joi.object({
   name: Joi.string().min(2).max(100).required(),
@@ -49,24 +41,22 @@ export const getAllGarages = async (req, res, next) => {
   }
 };
 
-// GET /api/garages/near?lat=...&lng=...&maxDistance=5000
 export const getNearbyGarages = async (req, res, next) => {
   try {
     const { lat, lng, maxDistance } = req.query;
     if (!lat || !lng) return res.status(400).json({ message: "lat and lng required" });
 
-    const distance = maxDistance ? parseInt(maxDistance, 10) : 5000; // default 5 km
+    const distance = maxDistance ? parseInt(maxDistance, 10) : 5000; 
     const latNum = parseFloat(lat);
     const lngNum = parseFloat(lng);
 
-    // GeoNear query
     const garages = await Garage.aggregate([
       {
         $geoNear: {
           near: { type: "Point", coordinates: [lngNum, latNum] },
           distanceField: "distance",
           spherical: true,
-          maxDistance: distance // meters
+          maxDistance: distance 
         }
       },
       { $sort: { distance: 1 } },

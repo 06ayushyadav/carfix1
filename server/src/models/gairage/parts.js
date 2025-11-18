@@ -39,7 +39,7 @@ const partSchema = new mongoose.Schema(
       default: 0,
     },
     photo: {
-      type: String, // Cloudinary or image URL
+      type: String, 
       required: [true, "Product image is required"],
     },
     ratings: {

@@ -1,6 +1,5 @@
 import Mechanic from "../models/mechanic.model.js";
 
-// ✅ CREATE mechanic (garage owner adds mechanic profile)
 export const createMechanic = async (req, res) => {
   try {
     const file = req.file;
@@ -31,7 +30,7 @@ export const createMechanic = async (req, res) => {
       mechanic: newMechanic,
     });
   } catch (err) {
-    console.error("❌ Error creating mechanic:", err);
+    console.error("Error creating mechanic:", err);
     res.status(500).json({
       success: false,
       message: "Failed to create mechanic",
@@ -40,7 +39,6 @@ export const createMechanic = async (req, res) => {
   }
 };
 
-// ✅ GET all mechanics (for users)
 export const getAllMechanics = async (req, res) => {
   try {
     const { search, skill } = req.query;
@@ -58,7 +56,6 @@ export const getAllMechanics = async (req, res) => {
   }
 };
 
-// ✅ GET single mechanic by ID
 export const getMechanicById = async (req, res) => {
   try {
     const mechanic = await Mechanic.findById(req.params.id);
@@ -67,19 +64,17 @@ export const getMechanicById = async (req, res) => {
 
     res.status(200).json({ success: true, mechanic });
   } catch (err) {
-    console.error("❌ Error fetching mechanic:", err);
+    console.error("Error fetching mechanic:", err);
     res.status(500).json({ success: false, message: "Failed to fetch mechanic" });
   }
 };
 
-// ✅ UPDATE mechanic (only owner or admin)
 export const updateMechanic = async (req, res) => {
   try {
     const mechanic = await Mechanic.findById(req.params.id);
     if (!mechanic)
       return res.status(404).json({ success: false, message: "Mechanic not found" });
 
-    // check ownership or admin
     if (mechanic.user.toString() !== req.user._id.toString() && req.user.role !== "admin") {
       return res.status(403).json({ message: "Not authorized to update this mechanic" });
     }
@@ -115,12 +110,11 @@ export const updateMechanic = async (req, res) => {
       mechanic: updated,
     });
   } catch (err) {
-    console.error("❌ Error updating mechanic:", err);
+    console.error(" Error updating mechanic:", err);
     res.status(500).json({ success: false, message: "Failed to update mechanic" });
   }
 };
 
-// ✅ DELETE mechanic (only owner or admin)
 export const deleteMechanic = async (req, res) => {
   try {
     const mechanic = await Mechanic.findById(req.params.id);
@@ -135,7 +129,7 @@ export const deleteMechanic = async (req, res) => {
 
     res.status(200).json({ success: true, message: "Mechanic deleted successfully" });
   } catch (err) {
-    console.error("❌ Error deleting mechanic:", err);
+    console.error("Error deleting mechanic:", err);
     res.status(500).json({ success: false, message: "Failed to delete mechanic" });
   }
 };

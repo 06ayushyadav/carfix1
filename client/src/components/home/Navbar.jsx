@@ -2,7 +2,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X,House, LogOut, User, Wrench, ShoppingBag, AlertTriangle } from "lucide-react";
-// import { MdHomeFilled } from "react-icons/md";
 
 import { AuthContext } from "../../context/AuthContext.jsx";
 import api from "../../api/axios.js";
@@ -14,14 +13,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Change navbar style on scroll
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Logout handler
   async function handleLogout() {
     try {
       await api.post("/auth/logout");

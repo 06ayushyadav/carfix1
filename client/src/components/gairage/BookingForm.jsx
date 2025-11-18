@@ -36,22 +36,6 @@ const BookingForm = () => {
     fetchGarage();
   }, [id]);
 
-  //   useEffect(() => {
-  //     const fetchGarage = async () => {
-  //         // const userId=localStorage.getItem("userId")
-  //       try {
-  //         const res = await api.get(`/book/${id}`);
-  //         console.log(res.data)
-  //         // console.log(userId)
-  //         setGarage(res.data.mechanic);
-  //       } catch (err) {
-  //         console.error("Error fetching garage:", err);
-  //       } finally {
-  //         setLoading(false);
-  //       }
-  //     };
-  //     fetchGarage();
-  //   }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
